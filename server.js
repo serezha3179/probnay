@@ -37,6 +37,7 @@ server.post("/api/feedback", async (req, res) => {
   try {
     console.log("email",process.env.USER_EMAIL);
     const transporter = nodemailer.createTransport({
+      name: "www.mail.ru",
       host: "smtp.mail.ru",
       // service: "Gmail",
       // host: "smtp.gmail.com",
