@@ -1,3 +1,4 @@
+import 'dotenv/config';
 // const express = require("express");
 import express from 'express'
 // const nodemailer = require("nodemailer")
@@ -6,6 +7,13 @@ import path from 'path';
 const __dirname = path.resolve();
 const server = express();
 const port = 8000;
+// const port = process.env.PORT;
+
+// let dotenv = require('dotenv').config()
+// import dotenv from 'dotenv';
+// dotenv.config({path: path.resolve(__dirname, '.env')})
+
+// require('dotenv').config();
 // const cors = require("cors")
 
 // server.use(cors())
@@ -24,20 +32,23 @@ server.get("/", (req, res) => {
   // res.send('fffffff')
 });
 
-
+console.log("email",process.env.USER_EMAIL);
 server.post("/api/feedback", async (req, res) => {
   try {
+    console.log("email",process.env.USER_EMAIL);
     const transporter = nodemailer.createTransport({
-      // host: "smtp.mail.ru",
+      host: "smtp.mail.ru",
       // service: "Gmail",
-      host: "smtp.gmail.com",
+      // host: "smtp.gmail.com",
       port: 465,
       secure: true, // use false for STARTTLS; true for SSL on port 465
       auth: {
-        // user: "abramkin3179@mail.ru",
-        // pass: "i3E0KkEt7rnMryPqZJAH",
-        user: "sergeiabramkin.79@gmail.com",
-        pass: "remq znfb xcwd irzp"
+        user: "abramkin3179@mail.ru",
+        pass: "i3E0KkEt7rnMryPqZJAH",
+        // user: process.env.USER_EMAIL,
+        // pass: process.env.USER_PASSWORD,
+        // user: "sergeiabramkin.79@gmail.com",
+        // pass: "remq znfb xcwd irzp"
       },
     });
 
@@ -67,10 +78,10 @@ server.post("/api/feedback", async (req, res) => {
 
     await transporter.sendMail({
       // from: `${phone}`,
-      from: "sergeiabramkin.79@gmail.com",
-      // from: 'abramkin3179@mail.ru',
-      // to: "abramkin3179@mail.ru",
-      to: "sergeiabramkin.79@gmail.com",
+      // from: "Портфолио<sergeiabramkin.79@gmail.com>",
+      from: 'abramkin3179@mail.ru',
+      to: "abramkin3179@mail.ru",
+      // to: "sergeiabramkin.79@gmail.com",
       // subject: `${name} (${phone})`,
       subject: "Тема письма",
       text: `${name} ${phone} ${message}`,
