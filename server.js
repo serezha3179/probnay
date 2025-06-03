@@ -95,12 +95,14 @@ server.post("/api/feedback", async (req, res) => {
     }, (error, info) => {
        if (error) {
     console.error("Error sending email: ", error);
+    return res.status(500).send({ status: 500, message: "not sending letter", error: error.response });
   } else {
     console.log("Email sent: ", info.response);
+    return res.status(200).send({ status: 200, message: "Успешная отправка" , inform: info.response});
   }
     });
 
-    return res.status(200).send({ status: 200, message: "Успешная отправка" });
+    // return res.status(200).send({ status: 200, message: "Успешная отправка" });
   } catch (e) {
     return res
       .status(500)
