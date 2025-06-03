@@ -29,7 +29,7 @@ server.post("/api/feedback", async (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
       // host: "smtp.mail.ru",
-      // service: "Gmail",
+      service: "Gmail",
       host: "smtp.gmail.com",
       port: 465,
       secure: true, // use false for STARTTLS; true for SSL on port 465
