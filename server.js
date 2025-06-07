@@ -44,10 +44,10 @@ const mytransport = {
       port: 465,
       secure: true, // use false for STARTTLS; true for SSL on port 465
       auth: {
-        // user: process.env.USER_EMAIL,
-        // pass: process.env.USER_PASSWORD,
-        user: "sergeiabramkin.79@gmail.com",
-        pass: "remq znfb xcwd irzp",
+        user: process.env.USER_EMAIL,
+        pass: process.env.USER_PASSWORD,
+        // user: "sergeiabramkin.79@gmail.com",
+        // pass: "remq znfb xcwd irzp",
       }
 }
 
