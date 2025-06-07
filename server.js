@@ -12,7 +12,8 @@ import path from 'path';
 const __dirname = path.resolve();
 
 const server = express();
-const port = process.env.PORT;
+// const port = process.env.PORT;
+const port = 8000;
 
 console.log(process.env.PORT, process.env.PORT === "8000");  
 // const cors = require("cors")
@@ -43,8 +44,10 @@ const mytransport = {
       port: 465,
       secure: true, // use false for STARTTLS; true for SSL on port 465
       auth: {
-        user: process.env.USER_EMAIL,
-        pass: process.env.USER_PASSWORD,
+        // user: process.env.USER_EMAIL,
+        // pass: process.env.USER_PASSWORD,
+        user: "sergeiabramkin.79@gmail.com",
+        pass: "remq znfb xcwd irzp",
       }
 }
 
@@ -56,8 +59,10 @@ server.post("/api/feedback", async (req, res) => {
     console.log(name, phone, message);
 
     await transporter.sendMail({
-      from: process.env.USER_EMAIL,
-      to: process.env.USER_EMAIL,
+      // from: process.env.USER_EMAIL,
+      // to: process.env.USER_EMAIL,
+      from: "sergeiabramkin.79@gmail.com",
+      to: "sergeiabramkin.79@gmail.com",
       subject: "Тема письма",
       text: `${name} ${phone} ${message}`,
 
