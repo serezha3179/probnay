@@ -10,8 +10,10 @@
 //     document.body.append(div)
 // }
 // myFunction();
+// import 'dotenv/config';
 
-
+// const port = process.env.PORTN
+// console.log(port);
 const FEEDBACK_FORM = document.querySelector("#feedback-form");
 
 async function sendFeedback(feedback) {
