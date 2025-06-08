@@ -37,7 +37,7 @@ server.get("/", (req, res) => {
 const mytransport = { 
       // name: "www.mail.ru",
       // host: "smtp.mail.ru",
-    //   service: "gmail",
+      service: "gmail",
     //   name: "smtp.gmail.com",
       // service: "smtp-relay.gmail.com",
       host: "smtp.gmail.com",
